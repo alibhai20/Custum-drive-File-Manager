@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TCP Drive</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="buttons-main">
+        <button id="add-folder-button" class="button" accesskey="P">
+          + New Folder
+        </button>
+        <button id="add-file-button" class="file-button" accesskey="P">
+          + Text file
+        </div>
+      </button>
+      <div class="breadcrums">
+        <a class="path" onclick="navigateToRoot(this)">TCP Root</a>
+      </div>
+      <div class="resources-description">
+        Total (<span purpose="resources-count">0</span>) -
+        <span purpose="folders-count">0</span> folders /
+        <span purpose="file-count">0</span> files
+      </div>
+      <div class="folders">
+        
+      </div>
+      <div class="app hidden">
+        <div class="app-header">
+          <div class="app-title">title</div>
+          <div class="win-actions">
+            <span class="material-icons">minimize</span>
+            <span class="material-icons">fullscreen</span>
+            <span class="material-icons file-close-icon">close</span>
+          </div>
+        </div>
+        <div class="app-menu-bar"></div>
+        <div class="app-body"></div>
+      </div>
+      <div class="no-content">Nothing to preview</div>
+    </div>
+    <template class="my-template">
+      <div class="folder">
+        <span action="edit" onclick="editFolder(this)">Edit</span>
+        <span action="delete" onclick="deleteFolder(this)">Delete</span>
+        <br />
+        <img
+          class="folder-icon"
+          src="images/folder-icon.png"
+          alt="Folder"
+          height="25"
+          width="25"
+        />
+        <span purpose="name"></span>
+      </div>
+      <div class="file">
+        <span action="edit" onclick="editFolder(this)">Edit</span>
+        <span action="delete" onclick="deleteFolder(this)">Delete</span>
+        <br />
+        <img
+          class="file-icon"
+          src="images/file-icon.jpg"
+          alt="File"
+          height="25"
+          width="25"
+        />
+        <span purpose="name"></span>
+      </div>
+      <a class="path"></a>
+      <div purpose="notepad-menu" class="notepad-menu">
+        <span action="save" class="material-icons" title="Save">save</span>
+        <span pressed="false" action="bold" class="material-icons" title="Bold"
+          >format_bold</span
+        >
+        <span
+          pressed="false"
+          action="italic"
+          class="material-icons"
+          title="Italic"
+          >format_italic</span
+        >
+        <span
+          pressed="false"
+          action="underline"
+          class="material-icons"
+          title="Underline"
+          >format_underlined</span
+        >
+        <input
+          action="bg-color"
+          type="color"
+          purpose="bg-color"
+          title="Background color"
+        />
+        <input
+          action="fg-color"
+          type="color"
+          purpose="fg-color"
+          title="Color"
+        />
+        <select action="font-family" title="Font style">
+          <option value="Monospace">Monospace</option>
+          <option value="arial">Arial</option>
+          <option value="serif">Serif</option>
+          <option value="sans-serif">Sans-serif</option>
+        </select>
+        <select action="font-size" title="Font size">
+          <option value="15">15</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="20">20</option>
+          <option value="22">22</option>
+          <option value="25">25</option>
+          <option value="30">30</option>
+        </select>
+        <span action="download" class="material-icons" title="Download"
+          >download</span
+        >
+        <span action="upload" class="material-icons" title="Upload"
+          >upload</span
+        >
+        <span action="reset" class="material-icons" title="Reset"
+          >refresh</span
+        >
+        <input style="display: none" action="upload" type="file" />
+        <a purpose="download"></a>
+      </div>
+      <div purpose="notepad-body" class="notepad-body">
+        <textarea>This is fine content</textarea>
+      </div>
+    </template>
+    <script type="text/javascript" src="main.js"></script>
+  </body>
+</html>
+<!-- https://fonts.google.com/icons?selected=Material+Icons&icon.query=underline -->
